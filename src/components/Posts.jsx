@@ -38,7 +38,7 @@ const [join,setjoin] = useState(false)
   return (
     <div className="h-full w-full mt-5">
     <div className="w-full grid lg:grid-cols-3  lg:px-5 xl:px-[150px] gap-14 items-start  justify-between">
-      <div className="w-full  lg:col-span-2">
+      <div className="w-full  col-span-3 lg:col-span-2">
       <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
             <TabsList className="w-full items-start hidden lg:flex">
               <TabsTrigger value="All">All Posts({posts.length})</TabsTrigger>
@@ -48,7 +48,7 @@ const [join,setjoin] = useState(false)
               <TabsTrigger value="Job">Job</TabsTrigger>
             </TabsList>
 
-            <div className="flex justify-evenly items-center w-full lg:hidden ">
+            <div className="flex justify-between items-center w-full lg:hidden ">
               <h2 className="font-semibold">Posts({posts.length})</h2>
               <Select onValueChange={setSelectedTab} className="w-full">
                 <SelectTrigger className="w-auto">
