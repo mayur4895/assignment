@@ -19,10 +19,12 @@ const [IsSignIn,setIsSignIn] = useState(true);
   return (
     <>  
    <AuthContext.Provider value={{ IsLogedIn, setIsLoggedIn ,IsSignIn, setIsSignIn}}>
-     <Banner/>
+    <div className='w-full '>
+    <Banner/>
      <Posts/> 
      <Edit/>
      <ModalProvider/>
+    </div>
      </AuthContext.Provider>
     </>
   )
