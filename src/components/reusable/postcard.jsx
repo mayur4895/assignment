@@ -50,88 +50,75 @@ const Postcard = ({
   };
 
   return (
-    <Card className="w-full  xl:w-[650px]">
-      {image && (
-        <div className="   w-full   h-[180px] xl:w-[650px] xl:h-[220px]">
-          <img src={image} className="  h-full w-full object-center" />
+    <Card className="w-full xl:max-w-[650px]">
+    {image && (
+      <div className="w-full h-[180px] xl:h-[220px]">
+        <img src={image} className="w-full h-full object-cover" alt="Post Image" />
+      </div>
+    )}
+    <CardHeader className="px-5">
+      <CardTitle className="flex items-center gap-2">
+        {mapIcon[type]} {type}
+      </CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="flex items-start justify-between">
+        <h2 className="text-base lg:text-lg xl:text-xl ">{title}</h2>
+        <div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <div>
+                <IoEllipsisHorizontalSharp size={22} />
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>Edit</DropdownMenuItem>
+              <DropdownMenuItem>Report</DropdownMenuItem>
+              <DropdownMenuItem>Option3</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
-      )}
-      <CardHeader className="px-5">
-        <CardTitle className=" flex items-center gap-2">
-          {" "}
-          {mapIcon[type]} {type}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className=" flex items-start justify-between">
-          <h2 className="text-[22px] w-full">{title}</h2>
-
-          <div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <div>
-                  <IoEllipsisHorizontalSharp size={22} />
-                </div>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>Edit</DropdownMenuItem>
-                <DropdownMenuItem>Report</DropdownMenuItem>
-                <DropdownMenuItem>Option3</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </div>
-        <p className=" text-[15px] text-[#5C5C5C]">{description}</p>
-        <div className=" flex  items-center gap-8">
-          {date && (
-            <span className="flex items-center gap-1 text-[15px]">
-              {" "}
-              <FaRegCalendarAlt /> {date}
-            </span>
-          )}
-
-          {jobcompany &&(
-            <span className="flex items-center gap-1 text-[15px]    truncate">
-            {" "}
+      </div>
+      <p className="text-sm lg:text-base text-gray-600">{description}</p>
+      <div className="flex items-center gap-4 mt-2">
+        {date && (
+          <span className="flex items-center gap-1 text-sm">
+            <FaRegCalendarAlt /> {date}
+          </span>
+        )}
+        {jobcompany && (
+          <span className="flex items-center gap-1 text-sm">
             <PiBagSimple /> {jobcompany}
           </span>
-          )}
-
-          {location && (
-            <span className="flex items-center gap-1 text-[15px]">
-              {" "}
-              <IoLocationOutline /> {location}
-            </span>
-          )}
-        </div>
-
-        { IsButton && (
-            <Button
-              className={`w-full h-[38px] mt-2 rounded-[8px] text-[13px]  ${Color}`}
-              variant="outline"
-            >
-              {buttonText}
-            </Button>
-  
         )}
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <div className=" flex items-center gap-2">
-          <div>
-            <img src={authorImg} className=" w-12 h-12 rounded-full" />
-          </div>
-          <span className="  text-lg"> {author}</span>
-        </div>
-
-        <div className=" flex items-center gap-5">
-          <span className=" flex items-center gap-2">
-            {" "}
-            <IoEyeOutline /> {views} views{" "}
+        {location && (
+          <span className="flex items-center gap-1 text-sm">
+            <IoLocationOutline /> {location}
           </span>
-          <GoShareAndroid />
-        </div>
-      </CardFooter>
-    </Card>
+        )}
+      </div>
+      {IsButton && (
+        <Button
+          className={`w-full mt-4 rounded-lg text-sm ${Color}`}
+          variant="outline"
+        >
+          {buttonText}
+        </Button>
+      )}
+    </CardContent>
+    <CardFooter className="flex justify-between mt-4 px-2">
+      <div className="flex items-center gap-2">
+        <img src={authorImg} className="lg:w-12 lg:h-12 h-8 w-8 rounded-full" alt="Author" />
+        <span className="text-xs text-nowrap lg:text-lg">{author}</span>
+      </div>
+      <div className="flex items-center gap-4">
+        <span className="flex  text-nowrap items-center gap-1 text-xs lg:text-sm">
+          <IoEyeOutline /> {views} views
+        </span>
+        <GoShareAndroid size={20} />
+      </div>
+    </CardFooter>
+  </Card>
   );
 };
 

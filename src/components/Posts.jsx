@@ -48,10 +48,10 @@ const [join,setjoin] = useState(false)
               <TabsTrigger value="Job">Job</TabsTrigger>
             </TabsList>
 
-            <div className="flex justify-between items-center w-full lg:hidden px-3">
+            <div className="flex justify-evenly items-center w-full lg:hidden ">
               <h2 className="font-semibold">Posts({posts.length})</h2>
-              <Select onValueChange={setSelectedTab}>
-                <SelectTrigger className="w-[190px]">
+              <Select onValueChange={setSelectedTab} className="w-full">
+                <SelectTrigger className="w-auto">
                   <span>Select</span>
                 </SelectTrigger>
                 <SelectContent>
