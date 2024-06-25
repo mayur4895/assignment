@@ -86,8 +86,8 @@ const [join,setjoin] = useState(false)
               {selectedTab === "Job" && filteredPosts.map(post => (
                 <Postcard key={post.id} {...post} />
               ))}
-            </TabsContent>
-
+            </TabsContent> 
+            
             <TabsContent value="MeetUp" className="p-0 items-center lg:items-start grid-cols-2">
               {selectedTab === "MeetUp" && filteredPosts.map(post => (
                 <Postcard key={post.id} {...post} />

@@ -8,16 +8,21 @@ import Banner from './components/banner'
 import { Posts } from './components/Posts'
 import AuthContext from './components/AuthContext'
 import Edit from './components/reusable/Edit'
+import ModalProvider from './components/provider/modal-provider'
+  
 
 function App() {
  
  
 const [IsLogedIn,setIsLoggedIn] = useState(false);
+const [IsSignIn,setIsSignIn] = useState(true);
   return (
     <>  
-   <AuthContext.Provider value={{ IsLogedIn, setIsLoggedIn }}>
+   <AuthContext.Provider value={{ IsLogedIn, setIsLoggedIn ,IsSignIn, setIsSignIn}}>
      <Banner/>
      <Posts/> 
+     <Edit/>
+     <ModalProvider/>
      </AuthContext.Provider>
     </>
   )

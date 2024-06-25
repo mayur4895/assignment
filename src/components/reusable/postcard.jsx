@@ -43,10 +43,10 @@ const Postcard = ({
   IsButton,
 }) => {
   const mapIcon = {
-    Job: <PiSuitcaseLight size={18} />,
-    Education: <LiaMicroscopeSolid size={18} />,
-    MeetUp: <PiHandshakeDuotone size={18} />,
-    Article: <BsPen size={18} />,
+    Job: <img src="/travel.png" height={35} width={35}/> ,
+    Education: <img src="/microscope.png" height={35} width={35}/>  ,
+    MeetUp: <img src="/meet.png" height={35} width={35}/> ,
+    Article: <img src="/article.png" height={35} width={35}/> ,
   };
 
   return (
@@ -57,7 +57,7 @@ const Postcard = ({
         </div>
       )}
       <CardHeader className="px-5">
-        <CardTitle className=" flex items-center">
+        <CardTitle className=" flex items-center gap-2">
           {" "}
           {mapIcon[type]} {type}
         </CardTitle>
